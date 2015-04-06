@@ -1,0 +1,14 @@
+# Hazelcast Demo
+
+## org.threeriverdev.hazelcast.queue.demo
+
+Demonstrates using Hazelcast queues to coordinate a task within a network of nodes.  Each node discovers the cluster
+through multicast, then obtains and executes any available task from the distributed queue.  Naively assumes that
+the "task" is simply a String that needs printed.
+
+To run:
+
+	$ mvn clean install
+	$ mvn exec:java -Dexec.mainClass="org.threeriverdev.hazelcast.queue.demo.HalcastNode"
+	[repeat the above to create additional nodes]
+	$ mvn exec:java -Dexec.mainClass="org.threeriverdev.hazelcast.queue.demo.HalcastDemo"
